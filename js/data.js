@@ -42,7 +42,7 @@ app.addComment = function(text) {
 	comment.shortBio      = shortBio;
 	comment.comment       = text;
 
-	this.replies.push(comment);
+	return comment;
 
 }
 
@@ -71,16 +71,40 @@ function getObject(theObject, x) {
 //This is the view model
 app.makeComment = function(parentID) {
 
-	var parentComment = getObject(app.comments,parentID);
-	app.addComment.call(parentComment, 'a new comment');
-	app.updateView();
+	var text = $('#t'+parentID),
+	newComment = app.addComment(text.val()),
+	commentsTemplate  = Handlebars.compile($('#comments-template').html());
+	replyTemplate  = Handlebars.compile($('#reply-template').html());
+
+	text.val('');
+	$('#reply-form-'+parentID).hide();
+
+	var ul = $('#m'+parentID).find('ul');
+
+	if(ul.length < 1) {
+		$('#m'+parentID).append(commentsTemplate({}));
+
+	 	ul = $('#m'+parentID).find('ul');
+	}
+
+	ul.append(replyTemplate(newComment));
+
+	app.bindDelete();
+
+
 
 }
 
 app.removeComment = function(id) {
-
 	$('#r'+id).html('');
+}
 
+app.bindDelete = function() {
+	$('.delete-wrapper').hover(function() {
+		$(this).find('.delete').show();
+	},function(){
+		$(this).find('.delete').hide();
+	});
 }
 
 app.updateView = function(){
