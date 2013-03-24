@@ -9,13 +9,7 @@ $(document).ready(function(){
 
 	console.log(app.comments);
 
-	//Compile templates
-	var commentsTemplate  = Handlebars.compile($('#comments-template').html());
-
-	Handlebars.registerPartial("reply", $("#reply-template").html());
-	Handlebars.registerPartial("replyForm", $("#reply-form-template").html());
-	Handlebars.registerPartial("comments", $("#comments-template").html());
-
-	$('#comments').html(commentsTemplate(app.comments));
+	
+	app.updateView();
 
 });

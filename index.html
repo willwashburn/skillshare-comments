@@ -26,19 +26,20 @@
 
 	<script id="reply-template" type="text/x-handlebars-template">
 		<li class="reply" id="r{{id}}">
-			<div class="left-col">
+
+			<div class="image">
 				<div class="image-wrapper">
 					<img src="{{imgSrc}}" alt="{{commenterName}}" />
 				</div>
 			</div>
 
-			<div class="right-col">
-				<div class="name">{{commenterName}} <span class="shortBio"> {{short_bio}}</span></div>
+			<div class="main-content">
+				<div class="name">{{commenterName}} <span class="shortBio"> {{shortBio}}</span></div>
 				<p>{{comment}}</p>
 				<div class="comment-footer">
 					<span class="time">{{time}}</span>
 					&#8901;
-					<a href="#!" onClick="$('#reply-form-{{id}}).show();">Reply</a>
+					<a href="#!"  onclick="$('#reply-form-{{id}}').show(); return false;">Reply</a>
 				</div>
 
 				{{> replyForm}}
@@ -52,14 +53,12 @@
 	</script>
 
 	<script id="reply-form-template" type="text/x-handlebars-template">
-		<form id="reply-form-{{id}}">
+		<form id="reply-form-{{id}}" class="reply-form">
 			<div class="image-wrapper">
 				<img src="user-img-2.png" alt="Danya" />
 			</div>
 			<input type="text" placeholder="Post your reply..." />
-			<a href="#!" onClick="app.makeComment({{id}}); return false">
-			Post
-			</a>
+			<input type="button" class="orange btn" onClick="app.makeComment({{id}}); return false" value="Post" />
 		</form>
 	</script>
 
