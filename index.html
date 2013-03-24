@@ -35,6 +35,11 @@
 			<div class="right-col">
 				<div class="name">{{commenterName}} <span class="shortBio"> {{short_bio}}</span></div>
 				<p>{{comment}}</p>
+				<div class="comment-footer">
+					<span class="time">{{time}}</span>
+					&#8901;
+					<a href="#!" onClick="$('#reply-form-{{id}}).show();">Reply</a>
+				</div>
 
 				{{> replyForm}}
 
@@ -47,7 +52,15 @@
 	</script>
 
 	<script id="reply-form-template" type="text/x-handlebars-template">
-		some reply form for {{{id}}}
+		<form id="reply-form-{{id}}">
+			<div class="image-wrapper">
+				<img src="user-img-2.png" alt="Danya" />
+			</div>
+			<input type="text" placeholder="Post your reply..." />
+			<a href="#!" onClick="app.makeComment({{id}}); return false">
+			Post
+			</a>
+		</form
 	</script>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
