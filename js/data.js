@@ -87,7 +87,7 @@ app.makeComment = function(parentID) {
 	 	ul = $('#m'+parentID).find('ul');
 	}
 
-	ul.append(replyTemplate(newComment));
+	ul.prepend(replyTemplate(newComment));
 
 	app.bindDelete();
 
