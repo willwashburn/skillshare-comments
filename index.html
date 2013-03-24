@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="delete-wrapper">
-				<a class="delete" onclick="alert({{id}});"> X </a>
+				<a class="delete" onclick="app.removeComment({{{id}}}); return false;"> X </a>
 			</div>
 
 			<div class="main-content" id="m{{id}}">

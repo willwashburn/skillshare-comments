@@ -77,6 +77,12 @@ app.makeComment = function(parentID) {
 
 }
 
+app.removeComment = function(id) {
+
+	$('#r'+id).html('');
+
+}
+
 app.updateView = function(){
 
 	var commentsTemplate  = Handlebars.compile($('#comments-template').html());
