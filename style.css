@@ -143,28 +143,18 @@ a {
 	padding:0 10px;
 	height:34px;
 	margin-left:10px;
-}
-
-
-
-
-
-.btn { 
+	cursor:pointer;
     border-radius: 3px; 
-	padding-left: 12px;
-	padding-right: 12px;
-	height: 37px;
+	display: table-cell;
+    font-weight: bold;
+    padding: 0 20px;
 	border-left: 0 none;
     border-right: 0 none;
     border-style: none none solid;
     border-top: 0 none;
-    display: table-cell;
-    font-weight: bold;
-    padding: 0 20px;
-    pointer:cursor;
 }
 
-.orange {
+.reply-form .orange {
 	color:#FFF;
 	display:block;
 	background: #f36c21;
@@ -173,4 +163,30 @@ a {
 	border-bottom-width: 2px;
 	line-height: 35px;
 	font-size: 13px;
+}
+
+/*
+ * Delete key
+ */
+.reply a.delete {
+
+	display:block;
+	overflow:hidden;
+	text-indent:-999px;
+	cursor:pointer;
+	position:absolute;
+	top:7px;
+	right:15px;
+	background:url('icon-close-dark.png') no-repeat 0 0;
+	width:8px;
+	height:10px;
+}
+
+.reply a.delete:hover {
+	background-position:0 -10px;
+}
+
+.reply ul a.delete {
+	top:0;
+	right:0;
 }
