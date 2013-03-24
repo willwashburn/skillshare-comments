@@ -17,7 +17,7 @@ var defaultComment = function() {
 
 	return {
 		"id"            : app.comments.idCount,
-		"imgSrc"        : "user-image-1.png",
+		"imgSrc"        : "user-img-1.png",
 		"commenterName" : "Michael Jordan",
 		"shortBio"      : "Wears a lot of nike shoes",
 		"comment"       : 'Mauis iaculis portitor posuere. praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a portititor letcus condimentum laoreet. Nunc eu ullamcorper orci.Quisque eget.',
