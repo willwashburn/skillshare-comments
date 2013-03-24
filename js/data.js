@@ -4,7 +4,7 @@ var app = app || {};
 
 app.comments = {
 	idCount:0,
-	replies:[]
+	"replies":[]
 }
 
 //This is the model for all of our comments
@@ -19,6 +19,7 @@ var defaultComment = function() {
 		"id"            : app.comments.idCount,
 		"imgSrc"        : "user-img-1.png",
 		"commenterName" : "Michael Jordan",
+		"time"			: "2 hours ago",
 		"shortBio"      : "Wears a lot of nike shoes",
 		"comment"       : 'Mauis iaculis portitor posuere. praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a portititor letcus condimentum laoreet. Nunc eu ullamcorper orci.Quisque eget.',
 		"replyForm"     : '',
