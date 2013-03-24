@@ -19,7 +19,7 @@ var defaultComment = function() {
 		"id"            : app.comments.idCount,
 		"imgSrc"        : "user-img-1.png",
 		"commenterName" : "Michael Jordan",
-		"time"			: "2 hours ago",
+		"time"			: moment(),
 		"shortBio"      : "Wears a lot of nike shoes",
 		"comment"       : 'Mauis iaculis portitor posuere. praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a portititor letcus condimentum laoreet. Nunc eu ullamcorper orci.Quisque eget.',
 		"replyForm"     : '',
@@ -41,6 +41,7 @@ app.addComment = function(text) {
 	comment.commenterName = commenterName;
 	comment.shortBio      = shortBio;
 	comment.comment       = text;
+
 
 	return comment;
 
@@ -76,6 +77,9 @@ app.makeComment = function(parentID) {
 	commentsTemplate  = Handlebars.compile($('#comments-template').html());
 	replyTemplate  = Handlebars.compile($('#reply-template').html());
 
+
+	newComment.time = newComment.time.fromNow();
+
 	text.val('');
 	$('#reply-form-'+parentID).hide();
 
@@ -90,8 +94,6 @@ app.makeComment = function(parentID) {
 	ul.prepend(replyTemplate(newComment));
 
 	app.bindDelete();
-
-
 
 }
 
@@ -117,7 +119,6 @@ app.updateView = function(){
 
 	$('#comments').html(commentsTemplate(app.comments));
 
-
 }
 
 //quick and dirty function to add fake comments
@@ -125,7 +126,10 @@ app.addFauxComments = function(number) {
 
 	for (i=0; i<number; i++) {
 		var comment = defaultComment();
+		comment.time.subtract('h',Math.random());
+		comment.time = comment.time.fromNow();
 		this.push(comment);
 	}
+
 
 }
