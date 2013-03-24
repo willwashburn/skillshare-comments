@@ -34,7 +34,7 @@ app.addComment = function(text) {
 	//for this example, make some default user stuff
 	
    var imgSrc    = 'user-img-2.png',
-   commenterName = 'Danya',
+   commenterName = 'Danya Cheskis-Gold ',
    shortBio      = 'Does awesome stuff at Skillshare';
 
 	comment.imgSrc        = imgSrc;
