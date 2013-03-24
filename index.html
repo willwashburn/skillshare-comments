@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<link rel="dns-prefetch" href="//ajax.googleapis.com">
+
+		<title>Comments</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+
+	</head>
+
+	<body>
+
+	<div id="comments" class="comments-widget">
+		LOADING COMMENTS
+	</div>
+
+	<script id="comments-template" type="text/x-handlebars-template">
+		<ul class="replies-wrapper">
+			{{#replies}}
+				{{> reply}}
+			{{/replies}}
+		</ul>	
+	</script>
+
+	<script id="reply-template" type="text/x-handlebars-template">
+		<li class="reply" id="r{{id}}">
+			<div class="left-col">
+				<div class="image-wrapper">
+					<img src="{{imgSrc}}" alt="{{commenterName}}" />
+				</div>
+			</div>
+
+			<div class="right-col">
+				<div class="name">{{commenterName}} <span class="shortBio"> {{short_bio}}</span></div>
+				<p>{{comment}}</p>
+
+				{{> replyForm}}
+
+				{{#if replies}}
+					{{> comments }}
+				{{/if}}
+				
+			</div>
+		</li>
+	</script>
+
+	<script id="reply-form-template" type="text/x-handlebars-template">
+		some reply form for {{{id}}}
+	</script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/handlebars.js"></script>
+	<script src="js/data.js"></script>
+	<script src="js/app.js"></script>
+	
+	</body>
+</html>
