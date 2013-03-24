@@ -33,9 +33,11 @@
 				</div>
 			</div>
 
-			<a class="delete" onclick="alert({{id}});"> X </a>
+			<div class="delete-wrapper">
+				<a class="delete" onclick="alert({{id}});"> X </a>
+			</div>
 
-			<div class="main-content">
+			<div class="main-content" id="m{{id}}">
 				<div class="name">{{commenterName}} <span class="shortBio"> {{shortBio}}</span></div>
 				<p>{{comment}}</p>
 				<div class="comment-footer">

@@ -12,4 +12,11 @@ $(document).ready(function(){
 	
 	app.updateView();
 
+	$('.delete-wrapper').hover(function() {
+		$(this).find('.delete').show();
+	},function(){
+		$(this).find('.delete').hide();
+	});
+
+     
 });

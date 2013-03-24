@@ -87,6 +87,7 @@ app.updateView = function(){
 
 	$('#comments').html(commentsTemplate(app.comments));
 
+
 }
 
 //quick and dirty function to add fake comments
