@@ -47,28 +47,6 @@ app.addComment = function(text) {
 
 }
 
-//Search for a comment by id 
-function getObject(theObject, x) {
-    var result = null;
-    if(theObject instanceof Array) {
-        for(var i = 0; i < theObject.length; i++) {
-            result = getObject(theObject[i],x);
-        }
-    }
-    else
-    {
-        for(var prop in theObject) {
-            if(prop == 'id') {
-                if(theObject[prop] == x) {
-                    return theObject;
-                }
-            }
-            if(theObject[prop] instanceof Object || theObject[prop] instanceof Array)
-                result = getObject(theObject[prop],x);
-        }
-    }
-    return result;
-}
 //This is the view model
 app.makeComment = function(parentID) {
 
@@ -83,7 +61,7 @@ app.makeComment = function(parentID) {
 	text.val('');
 	$('#reply-form-'+parentID).hide();
 
-	var ul = $('#m'+parentID).find('ul');
+	var ul = $('#m'+parentID).find('ul:first');
 
 	if(ul.length < 1) {
 		$('#m'+parentID).append(commentsTemplate({}));

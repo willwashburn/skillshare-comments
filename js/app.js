@@ -7,9 +7,6 @@ $(document).ready(function(){
 		app.addFauxComments.call(app.comments.replies[0].replies[0].replies,1);
 	}
 
-	console.log(app.comments);
-
-	
 	app.updateView();
 
     app.bindDelete();
